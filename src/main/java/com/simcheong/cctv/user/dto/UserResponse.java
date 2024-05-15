@@ -6,7 +6,7 @@ import lombok.Getter;
 public class UserResponse {
 
     @Getter
-    public static class SettingDTO {
+    public static final class SettingDTO {
         private final String nickname;
         private final String phoneNumber;
         private final String profileImage;
