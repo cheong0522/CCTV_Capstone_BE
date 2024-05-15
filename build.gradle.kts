@@ -31,6 +31,8 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok:1.18.32")
 	testImplementation("org.springframework.boot:spring-boot-starter-test:3.2.4")
 	testImplementation("org.springframework.security:spring-security-test:4.1.4.RELEASE")
+
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 }
 
 tasks.withType<Test> {
