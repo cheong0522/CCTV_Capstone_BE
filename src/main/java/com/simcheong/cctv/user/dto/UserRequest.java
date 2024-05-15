@@ -14,7 +14,7 @@ public class UserRequest {
     @Getter
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class SignUpDTO {
+    public static final class SignUpDTO {
         @Size(min = 3, max = 45, message = "3에서 45자 이내여야 합니다.")
         @NotEmpty
         private String nickname;
