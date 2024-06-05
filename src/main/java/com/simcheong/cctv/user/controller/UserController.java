@@ -34,4 +34,14 @@ public class UserController {
         userService.signUp(requestDTO);
         return ApiUtils.success(null);
     }
+
+    @Operation(summary = "로그인", description = "닉네임과 비밀번호를 입력받아 로그인한다.")
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiUtils<?> login(
+            @RequestBody @Valid @Schema(implementation = UserRequest.LoginDTO.class) final UserRequest.LoginDTO requestDTO,
+            @Parameter(hidden = true) final Error error
+    ){
+        return ApiUtils.success(userService.login(requestDTO));
+    }
 }
