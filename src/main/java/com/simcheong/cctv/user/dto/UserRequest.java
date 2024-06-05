@@ -41,4 +41,19 @@ public class UserRequest {
 
         public void encodePassword(final String encodedPassword) { password = encodedPassword; }
     }
+
+    @Getter
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static final class LoginDTO {
+        @NotEmpty
+        private String nickname;
+
+        @NotEmpty
+        private String password;
+
+        public static LoginDTO of(final String nickname, final String password){
+            return new LoginDTO(nickname, password);
+        }
+    }
 }
