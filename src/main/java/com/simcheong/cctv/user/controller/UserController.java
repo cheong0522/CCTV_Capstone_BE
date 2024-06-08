@@ -1,7 +1,9 @@
 package com.simcheong.cctv.user.controller;
 
+import com.simcheong.cctv._core.security.JwtTokenProvider;
 import com.simcheong.cctv._core.utils.ApiUtils;
 import com.simcheong.cctv.user.dto.UserRequest;
+import com.simcheong.cctv.user.dto.UserResponse;
 import com.simcheong.cctv.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -10,11 +12,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Tag(name = "USER", description = "회원 관련 API")
 @RequiredArgsConstructor
@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Operation(summary = "회원가입", description = "이메일, 닉네임, 비밀번호를 입력받아 회원가입한다.")
     @PostMapping("/signup")
@@ -42,6 +43,8 @@ public class UserController {
             @RequestBody @Valid @Schema(implementation = UserRequest.LoginDTO.class) final UserRequest.LoginDTO requestDTO,
             @Parameter(hidden = true) final Error error
     ){
-        return ApiUtils.success(userService.login(requestDTO));
+        UserResponse.SettingDTO user = userService.login(requestDTO);
+        String token = jwtTokenProvider.createToken(requestDTO.getNickname());
+        return ApiUtils.success(Map.of("token", token, "user", user));
     }
 }
