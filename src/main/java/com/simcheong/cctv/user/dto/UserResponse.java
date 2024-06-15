@@ -19,4 +19,23 @@ public class UserResponse {
 
         public static SettingDTO from(final User user) { return new SettingDTO(user); }
     }
+
+    @Getter
+    public static final class LoginDTO {
+        private final Long userId;
+        private final String nickname;
+        private final String refreshToken;
+        private final String token;
+
+        private LoginDTO(final User user, String token) {
+            userId = user.getUserId();
+            nickname = user.getNickname();
+            refreshToken = user.getRefreshToken();
+            this.token = token;
+        }
+
+        public static LoginDTO from(final User user, String token) {
+            return new LoginDTO(user, token);
+        }
+    }
 }
