@@ -10,6 +10,5 @@ CCTV/gradlew.bat
 CCTV/node_modules/
 
 # Flask 애플리케이션 관련 파일
-flask-app/app.py
 flask-app/app/__pycache__/
 flask-app/app/model/
