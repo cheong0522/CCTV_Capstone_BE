@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .resultItem img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/shop.html">Shop</a></li>
+            <li id="loginButton"><a href="/login.html">Login</a></li>
+            <li id="mypageButton" style="display:none;"><a href="/mypage.html">My Page</a></li>
+        </ul>
+    </nav>
+    <h1>Detection Results</h1>
+</header>
+<div class="resultsContainer" id="resultsContainer">
+    <h2>감지된 이상 행동</h2>
+    <div id="resultsList" style="text-align: left"></div>
+</div>
+<footer>
+    <p>&copy; 2024 Our Company. All rights reserved.</p>
+</footer>
+<script src="/javascript/detect.js"></script>
+<script src="/javascript/main.js"></script>
+</body>
+</html>
