@@ -1,16 +1,14 @@
-# Project exclude paths
-/.gradle/
-/out/
+# IDE 관련 파일 및 디렉토리
+.idea/
 
-.idea/**
+# Gradle 관련 파일 및 디렉토리
+CCTV/gradle/
+CCTV/gradlew
+CCTV/gradlew.bat
 
-# 디폴트 무시된 파일
-/shelf/
-/workspace.xml
-# 에디터 기반 HTTP 클라이언트 요청
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+# Node.js 관련 디렉토리
+CCTV/node_modules/
 
-/build/
+# Flask 애플리케이션 관련 파일
+flask-app/app/__pycache__/
+flask-app/app/model/

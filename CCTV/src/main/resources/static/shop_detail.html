@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Detail</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        .video-wrapper {
+            position: relative;
+            width: 640px;
+            height: 264px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-wrapper h4 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .video-wrapper button {
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            color: red;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+            background-color: white;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/shop.html">Shop</a></li>
+            <li id="loginButton"><a href="/login.html">Login</a></li>
+            <li id="mypageButton" style="display:none;"><a href="/mypage.html">My Page</a></li>
+        </ul>
+    </nav>
+    <h1>Shop Detail</h1>
+</header>
+<div class="shopDetail" id="shopDetailContainer">
+    <h2 id="shopName"></h2>
+    <p id="shopAddress"></p>
+    <button id="viewDetectionButton">감지된 이상 행동 목록</button>
+    <button id="registerCCTVButton">Register CCTV</button>
+    <h3 id="cctvCount">현재 등록된 CCTV 수 : 0</h3>
+    <div id="cctvContainer" class="video-container">
+        <p id="noCCTVMessage"></p>
+    </div>
+    <button id="deleteShopButton" style="background-color: white; color: red; border: none; padding: 10px; cursor: pointer; font-size: 16px;">Delete Shop</button>
+</div>
+<footer>
+    <p>&copy; 2024 Our Company. All rights reserved.</p>
+</footer>
+<script src="/javascript/shop_detail.js"></script>
+<script src="/javascript/main.js"></script>
+</body>
+</html>
